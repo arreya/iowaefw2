@@ -12,11 +12,10 @@ var W2 = {
             }
             return value;
         };
-        var month = pad(date.getMonth() + 1);
-        filename += month;
-        filename += date.getDate();
-        filename += date.getHours();
-        filename += date.getMinutes();
+        filename += pad(date.getMonth() + 1);
+        filename += pad(date.getDate());
+        filename += pad(date.getHours());
+        filename += pad(date.getMinutes());
         filename += '.txt';
         return filename;
     },
