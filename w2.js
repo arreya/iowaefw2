@@ -6,7 +6,11 @@ var W2 = {
         filename += '-';
         var date = new Date();
         filename += date.getFullYear();
-        filename += (date.getMonth() + 1);
+        var month = (date.getMonth() + 1);
+        if (month < 10) {
+            month = '0' + month;
+        }
+        filename += month;
         filename += date.getDate();
         filename += date.getHours();
         filename += date.getMinutes();

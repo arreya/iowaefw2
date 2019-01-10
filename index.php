@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<?php
+
+$t = time();
+
+?><!DOCTYPE html>
 <html>
 
 <head>
@@ -6,9 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <title>CarQuest W2</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400" />
-    <link rel="stylesheet" href="w2.css" />
+    <link rel="stylesheet" href="w2.css?t=<?= $t ?>" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="w2.js"></script>
+    <script src="w2.js?t=<?= $t ?>"></script>
 </head>
 
 <body>
