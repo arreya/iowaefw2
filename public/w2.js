@@ -94,7 +94,19 @@ $(document).ready(function() {
         var $newEmployee = $lastEmployee.clone();
         $newEmployee.find('input').not('[type="hidden"]').val('');
         $lastEmployee.after($newEmployee);
+        
+        $newEmployee.find('.delete-employee-button').show();
+        $newEmployee.find('.delete-employee-button').on('click', function(evt) {
+            // Delete employee
+            console.log("Delete!",evt);
+            $(evt.target).parents('.employee-and-state').remove();
+            $('[name="number-of-rw-records"]').val($('.employee').length);
+            $('#employee-count').text('(' + $('.employee').length + ')')
+            $('[name="number-of-rs-records"]').val($('.state').length);
+        })
+        
         $('[name="number-of-rw-records"]').val($('.employee').length);
+        $('#employee-count').text('(' + $('.employee').length + ')')
         $('[name="number-of-rs-records"]').val($('.state').length);
     })
     .on('change', '.employee .money, .state .money', function() {
@@ -105,6 +117,9 @@ $(document).ready(function() {
         });
         $('[name="total-' + this.name + '"]').val(total.toFixed(2));
     });
+    
+
+    
     $('[name="ben"]').on('change', function() {
         $('[name="state-ben"]').val(this.value);
     });

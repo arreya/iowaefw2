@@ -1,0 +1,793 @@
+<html>
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+        <title>Iowa EFW2</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="w2.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="w2.js"></script>
+    </head>
+    
+    <body>
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#"><img alt="Brand" src="iowa.png"/>Iowa EFW2</a>
+            </div>
+        
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li role="presentation" class="active"><a href="#home" role="tab" data-toggle="tab">Home</a></li>
+                <li role="presentation"><a href="#submitter" role="tab" data-toggle="tab">Submitter</a></li>
+                <li role="presentation"><a href="#employer" role="tab" data-toggle="tab">Employer</a></li>
+                <li role="presentation"><a href="#employees" role="tab" data-toggle="tab">Employees <span id="employee-count">(1)</span></a></li>
+                <li role="presentation"><a href="#totals" role="tab" data-toggle="tab">Totals</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                  <form class="navbar-form navbar-left">
+                      <div class="form-group">
+                        <label>
+                            Business eFile Number (BEN):
+                            <input type="text" class="form-control" name="ben" maxlength="8" />
+                        </label>
+                      </div>
+                  </form>
+    
+                  <li>
+                    <p class="navbar-btn">
+                        <a class="download btn btn-success" href="data:text/plain;charset=ascii," download="IAW2-ben#-date.txt">Download EFW2 <span class="glyphicon glyphicon-download" aria-hidden="true"></span></a>
+                    </p>
+                  </li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+    
+        <div class="col col-xs-8 col-xs-offset-2">
+            <!--<ul class="nav nav-tabs">-->
+            <!--  <li role="presentation" class="active"><a href="#submitter" role="tab" data-toggle="tab">Submitter</a></li>-->
+            <!--  <li role="presentation"><a href="#employer" role="tab" data-toggle="tab">Employer</a></li>-->
+            <!--  <li role="presentation"><a href="#employees" role="tab" data-toggle="tab">Employees <span id="employee-count">(1)</span></a></li>-->
+            <!--  <li role="presentation"><a href="#totals" role="tab" data-toggle="tab">Totals</a></li>-->
+            <!--</ul>-->
+            
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="home">
+                    <div class="container-fluid">
+                        <div class="col col-xs-8 col-xs-offset-2">
+                            <div class="jumbotron text-center">
+                              <h1>Iowa EFW2 Generator</h1>
+                              <p>This utility was created to generate the EFW2 format required by the state of Iowa.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col col-xs-8 col-xs-offset-2">
+                            <h2>What it does</h2>
+                            <p>
+                                This site generates the specific EFW2 format required to eFile W-2's in Iowa.  After filling out the fields, enter your BEN in the upper right hand corner, and then click Download EFW2.  The file is already properly named and ready for upload to the state of Iowa.
+                            </p>
+                        </div>
+                       
+                        <div class="col col-xs-8 col-xs-offset-2">
+                            <h3>Who created this</h3>
+                            <p>
+                                <p>Presentations Inc <a href="http://p-egd.com">p-egd.com</a></p>
+                                <p>Arreya <a href="https://arreya.com">arreya.com</a></p>
+                                <p>Contact Us: <a href="mailto:info@arreya.com">info@arreya.com</a></p>
+                            </p>
+                        </div>
+                       
+                        <div class="col col-xs-8 col-xs-offset-2">
+                            <h3>Why we created this</h3>
+                            <p>
+                                Iowa didn't.
+                            </p>
+                        </div>
+                            
+                        <div class="col col-xs-8 col-xs-offset-2">
+                            <h3>How it works</h3>
+                            <p>
+                                This site uses Javscript to build the EFW2 format based on the input fields - in your browser.  No server side code is used.  No data is ever transmitted or leaves this page.
+                            </p>
+                            
+                            <p>
+                                Forked from original code here - <a href="https://github.com/peder541/w2">https://github.com/peder541/w2</a>
+                            </p>    
+                            
+                        </div>
+                        
+                        <div class="col col-xs-8 col-xs-offset-2">
+                            <h5>Terms of use</h5>
+                            <p>
+                                THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="submitter">
+                    <!-- Submitter -->
+                    <form class="submitter form-horizontal">
+                        <h3>Submitter Record</h3>
+                        
+                        <input type="hidden" name="record-id" value="RA" maxlength="2" />
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Submitter's EIN:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="submitter-ein" pattern="\d*" maxlength="9" />
+                            </div>
+                        </div>
+                        
+                        <!--<div class="form-group">-->
+                        <!--    <label class="col-xs-4 control-label">User ID: (BSO)</label>-->
+                        <!--    <div class="col-xs-8">-->
+                        <!--        <input type="text" name="user-id" maxlength="8" />-->
+                        <!--    </div>-->
+                        <!--</div>-->
+                        
+                        <input type="hidden" name="user-id" maxlength="8" />
+    
+                        <input type="hidden" name="software-vendor-code" value=" " maxlength="4" />
+                        <input type="hidden" name="blanks" value=" " maxlength="5" />
+                        <input type="hidden" name="resub" value="0" maxlength="1" />
+                        <input type="hidden" name="wfid" value=" " maxlength="6" />
+                        <input type="hidden" name="sofware-code" value="98" maxlength="2" />
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Company Name:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="company-name" maxlength="57" />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Company Location Address:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="company-location-address" maxlength="22" />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Company Delivery Address:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="company-delivery-address" maxlength="22" />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Company City:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="company-city" maxlength="22" />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Company State Abbreviation:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="company-state-abbreviation" maxlength="2" />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Company ZIP Code:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="company-zipcode" maxlength="5" />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Company Zip Code Extension:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="company-zipcode-extension" maxlength="4" />
+                            </div>
+                        </div>
+                        
+                        <input type="hidden" name="blank" value=" " maxlength="5" />
+                        <input type="hidden" name="company-foreign-state" value=" " maxlength="23" />
+                        <input type="hidden" name="company-foreign-postal" value=" " maxlength="15" />
+                        <input type="hidden" name="company-country-code" value=" " maxlength="2" />
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Submitter Name (Organization):</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="submitter-submitter-name" maxlength="57" />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Submitter Location Address:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="submitter-location-address" maxlength="22" />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Submitter Delivery Address:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="submitter-delivery-address" maxlength="22" />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Submitter City:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="submitter-city" maxlength="22" />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Submitter State Abbreviation:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="company-state-abbreviation" maxlength="2" />
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Submitter ZIP Code:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="submitter-zipcode" maxlength="5" />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Submitter ZIP Code Extension:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="submitter-zipcode-extension" maxlength="4" />
+                            </div>
+                        </div>
+                        
+                        <input type="hidden" name="blank" value=" " maxlength="5" />
+                        <input type="hidden" name="submitter-foreign-state" value=" " maxlength="23" />
+                        <input type="hidden" name="submitter-foreign-postal" value=" " maxlength="15" />
+                        <input type="hidden" name="submitter-country-code" value=" " maxlength="2" />
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Contact Name:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="contact-name" maxlength="27" />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Contact Phone Number:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="contact-phone-number" pattern="\d*" maxlength="15" />
+                            </div>
+                        </div>
+                        
+                        <input type="hidden" name="contact-phone-extension" value=" " maxlength="5" />
+                        <input type="hidden" name="blank" value=" " maxlength="3" />
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Contact Email:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="contact-email" value=" " maxlength="40" />
+                            </div>
+                        </div>
+                        
+                        <input type="hidden" name="blank" value=" " maxlength="3" />
+                        <input type="hidden" name="contact-fax" value=" " maxlength="10" />
+                        <input type="hidden" name="blank" value="1" maxlength="1" />
+                        <input type="hidden" name="preparer-code" value="L" maxlength="1" />
+                        <input type="hidden" name="blank" value=" " maxlength="12" />
+                    </form>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="employer">
+                    <!-- Employer -->
+                    <form class="employer form-horizontal">
+                        <h3>Employer Record</h3>
+                        
+                        <input type="hidden" name="record-id" value="RE" maxlength="2" />
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Tax Year:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="tax-year" maxlength="4" />
+                            </div>
+                        </div>
+                        
+                        <input type="hidden" name="agent-indicator-code" value=" " maxlength="1" />
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Employer EIN:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="employer-ein" pattern="\d*" maxlength="9" />
+                            </div>
+                        </div>
+                        
+                        <input type="hidden" name="agent-for-ein" value=" " maxlength="9" />
+                        <input type="hidden" name="terminating-business-indicator" value="0" maxlength="1" />
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Establishment Number:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="establishment-number" value=" " maxlength="4" />
+                            </div>
+                        </div>
+                        
+                        <input type="hidden" name="other-ein" value=" " maxlength="9" />
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Employer Name:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="employer-name" maxlength="57" />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Employer Location Address:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="employer-location-address" maxlength="22" />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Employer Delivery Address:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="employer-delivery-address" maxlength="22" />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Employer City:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="employer-city" maxlength="22" />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Employer State Abbreviation:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="employer-state-abbreviation" maxlength="2" />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Employer ZIP Code:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="employer-zipcode" maxlength="5" />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Employer Zip Code Extension:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="company-zipcode-extension" maxlength="4" />
+                            </div>
+                        </div>
+                        
+                        <input type="hidden" name="kind-of-employer" value="N" maxlength="1" />
+                        <input type="hidden" name="blank" value=" " maxlength="4" />
+                        <input type="hidden" name="employer-foreign-state" value=" " maxlength="23" />
+                        <input type="hidden" name="employer-foreign-postal" value=" " maxlength="15" />
+                        <input type="hidden" name="employer-country-code" value=" " maxlength="2" />
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Employment Code: (A = Agriculture 943; R = Regular 941)</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="employment code" maxlength="1" />
+                            </div>
+                        </div>
+                        
+                        <input type="hidden" name="tax-jurisdiction" value=" " maxlength="1" />
+                        <input type="hidden" name="third-party-sick-pay" value="0" maxlength="1" />
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Contact Name:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="contact-name" maxlength="27" />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Contact Phone Number:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="contact-phone-number" pattern="\d*" maxlength="15" />
+                            </div>
+                        </div>
+                        
+                        <input type="hidden" name="contact-phone-extension" value=" " maxlength="5" />
+                        <input type="hidden" name="contact-fax-number" value=" " maxlength="10" />
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Contact Email:</label>
+                            <div class="col-xs-8">
+                                <input type="text" name="contact-email" value=" " maxlength="40" />
+                            </div>
+                        </div>
+                        
+                        <input type="hidden" name="blank" value=" " maxlength="194" />
+                    </form>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="employees">
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <button type="button" class="add-employee btn btn-success pull-right">Add Employee</button>
+                    </div>
+                    <!-- Employees -->
+                    <div class="employee-and-state col-xs-12">
+                        <form class="employee col-xs-6 form-horizontal">
+                            <h3><button type="button" class="btn btn-danger delete-employee-button"><span class="delete-employee glyphicon glyphicon-remove" aria-hidden="true"></span></button> Employee Wage Record</h3>
+                            <input type="hidden" name="record-id" value="RW" maxlength="2" />
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">Social Security Number:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" name="employee-ssn" pattern="\d*" maxlength="9" />
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">First Name:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" name="employee-first-name" maxlength="15" />
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">Middle Name or Initial:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" name="employee-middle-name" maxlength="15" />
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">Last Name:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" name="employee-first-name" maxlength="20" />
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">Suffix:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" name="employee-suffix" maxlength="4" />
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">Location Address:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" name="employee-location-address" maxlength="22" />
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">Delivery Address:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" name="employee-delivery-address" maxlength="22" />
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">City:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" name="employee-city" maxlength="22" />
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">State Abbreviation:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" name="employee-state-abbreviation" maxlength="2" />
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">ZIP Code:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" name="employee-zipcode" maxlength="5" />
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">Zip Code Extension:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" name="employee-zipcode-extension" maxlength="4" />
+                                </div>
+                            </div>
+                            
+                            <input type="hidden" name="blank" value=" " maxlength="5" />
+                            <input type="hidden" name="employee-foreign-state" value=" " maxlength="23" />
+                            <input type="hidden" name="employee-foreign-postal" value=" " maxlength="15" />
+                            <input type="hidden" name="employee-country-code" value=" " maxlength="2" />
+                            
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">Wages, Tips, and Other Compensation:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" class="money" name="wages" maxlength="11" />
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">Federal Income Tax Withheld:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" class="money" name="federal-income-tax-withheld" maxlength="11" />
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">Social Security Wages:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" class="money" name="social-security-wages" maxlength="11" /> 
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">Social Security Tax Withheld:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" class="money" name="social-security-tax-withheld" maxlength="11" />
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">Medicare Wages and Tips:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" class="money" name="medicare-wages" maxlength="11" />
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">Medicare Tax Withheld:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" class="money" name="medicare-tax-withheld" maxlength="11" />
+                                </div>
+                            </div>
+                            <input type="hidden" class="money" name="social-security-tips" maxlength="11" />
+                            <input type="hidden" name="blank" value=" " maxlength="11" />
+                            <input type="hidden" class="money" name="dependent-care-benefits" maxlength="11" />
+                            <input type="hidden" class="money" name="deferred-401k" maxlength="11" />
+                            <input type="hidden" class="money" name="deferred-403b" maxlength="11" />
+                            <input type="hidden" class="money" name="deferred-408k6" maxlength="11" />
+                            <input type="hidden" class="money" name="deferred-457b" maxlength="11" />
+                            <input type="hidden" class="money" name="deferred-501c18D" maxlength="11" />
+                            <input type="hidden" name="blank" value=" " maxlength="11" />
+                            <input type="hidden" class="money" name="nonqualified-457" maxlength="11" />
+                            <input type="hidden" class="money" name="hsa-contributions" maxlength="11" />
+                            <input type="hidden" class="money" name="nonqualified-not-457" maxlength="11" />
+                            <input type="hidden" class="money" name="nontaxable-combat-pay" maxlength="11" />
+                            <input type="hidden" name="blank" maxlength="11" />
+                            <input type="hidden" class="money" name="group-term-life-insurance" maxlength="11" />
+                            <input type="hidden" class="money" name="income-from-nonstatutory-stock-options" maxlength="11" />
+                            <input type="hidden" class="money" name="deferrals-nonqualified-409a" maxlength="11" />
+                            <input type="hidden" class="money" name="roth-contributions-401k" maxlength="11" />
+                            <input type="hidden" class="money" name="roth-contributions-403b" maxlength="11" />
+                            <input type="hidden" class="money" name="employer-sponsored-health-coverage" maxlength="11" />
+                            <input type="hidden" class="money" name="small-employer-health-reimbursement" maxlength="11" />
+                            <input type="hidden" name="blank" value=" " maxlength="1" />
+                            <input type="hidden" name="statutory-employee" value="0" maxlength="1" />
+                            <input type="hidden" name="blank" value=" " maxlength="1" />
+                            <input type="hidden" name="retirement-plan" value="0" maxlength="1" />
+                            <input type="hidden" name="third-party-sick-pay" value="0" maxlength="1" />
+                            <input type="hidden" name="blank" value=" " maxlength="23" />
+                        </form>
+                        <form class="state col-xs-6 form-horizontal">
+                            <h3>State Wage Record</h3>
+                            <input type="hidden" name="record-id" value="RS" maxlength="2" />
+                            <input type="hidden" name="state-code" value="19" maxlength="2" />
+                            <input type="hidden" name="taxing-entity-code" value=" " maxlength="5" />
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">Social Security Number:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" name="employee-ssn" pattern="\d*" maxlength="9" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">First Name:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" name="employee-first-name" maxlength="15" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">Middle Name or Initial:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" name="employee-middle-name" maxlength="15" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">Last Name:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" name="employee-first-name" maxlength="20" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">Suffix:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" name="employee-suffix" maxlength="4" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">Location Address:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" name="employee-location-address" maxlength="22" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">Delivery Address:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" name="employee-delivery-address" maxlength="22" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">City:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" name="employee-city" maxlength="22" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">State Abbreviation:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" name="employee-state-abbreviation" maxlength="2" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">ZIP Code:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" name="employee-zipcode" maxlength="5" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">Zip Code Extension:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" name="employee-zipcode-extension" maxlength="4" />
+                                </div>
+                            </div>
+                            <input type="hidden" name="blank" value=" " maxlength="5" />
+                            <input type="hidden" name="employee-foreign-state" value=" " maxlength="23" />
+                            <input type="hidden" name="employee-foreign-postal" value=" " maxlength="15" />
+                            <input type="hidden" name="employee-country-code" value=" " maxlength="2" />
+                            <input type="hidden" name="unemployment-info" value=" " maxlength="48" />
+                            <input type="hidden" name="blank" value=" " maxlength="5" />
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">State Employer Account Number: (12-digit state online number)</label>
+                                <div class="col-xs-8">
+                                    <input type="text" class="right" name="state-employer-account-number" pattern="\d*" maxlength="20" />
+                                </div>
+                            </div>
+                            <input type="hidden" name="blank" value=" " maxlength="6" />
+                            <input type="hidden" name="state-code" value="19" maxlength="2" />
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">State Taxable Wages:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" class="money" name="state-taxable-wages" maxlength="11" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-4 control-label">State Income Tax Withheld:</label>
+                                <div class="col-xs-8">
+                                    <input type="text" class="money" name="state-income-tax-withheld" maxlength="11" />
+                                </div>
+                            </div>
+                            <input type="hidden" name="other-state-data" value=" " maxlength="10" />
+                            <input type="hidden" name="tax-type-code" value=" " maxlength="1" />
+                            <input type="hidden" class="money" name="local-taxable-wages" maxlength="11" />
+                            <input type="hidden" class="money" name="local-income-tax-withheld" maxlength="11" />
+                            <input type="hidden" name="state-control-number" value=" " maxlength="7" />
+                            <input type="hidden" name="supplemental-data-1" value=" " maxlength="75" />
+                            <input type="hidden" name="supplemental-data-2" value=" " maxlength="75" />
+                            <input type="hidden" name="blank" value=" " maxlength="25" />
+                        </form>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="totals">
+                    <!-- Totals -->
+                    <form class="total form-horizontal">
+                        <h3>Total Record</h3>
+                        <input type="hidden" name="record-id" value="RT" maxlength="2" />
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Number of Employees:</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="right" name="number-of-rw-records" value="1" maxlength="7" disabled/>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Total Wages, Tips, and Other Compensation:</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="money" name="total-wages" maxlength="15" disabled/>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Total Federal Income Tax Withheld:</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="money" name="total-federal-income-tax-withheld" maxlength="15" disabled/>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Total Social Security Wages:</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="money" name="total-social-security-wages" maxlength="15" disabled/>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Total Social Security Tax Withheld:</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="money" name="total-social-security-tax-withheld" maxlength="15" disabled/>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Total Medicare Wages and Tips:</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="money" name="total-medicare-wages" maxlength="15" disabled/>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Total Medicare Tax Withheld:</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="money" name="total-medicare-tax-withheld" maxlength="15" disabled/>
+                            </div>
+                        </div>
+                        
+                        <input type="hidden" class="money" name="total-social-security-tips" maxlength="15" />
+                        <input type="hidden" name="blank" value=" " maxlength="15" />
+                        <input type="hidden" class="money" name="total-dependent-care-benefits" maxlength="15" />
+                        <input type="hidden" class="money" name="total-deferred-401k" maxlength="15" />
+                        <input type="hidden" class="money" name="total-deferred-403b" maxlength="15" />
+                        <input type="hidden" class="money" name="total-deferred-408k6" maxlength="15" />
+                        <input type="hidden" class="money" name="total-deferred-457b" maxlength="15" />
+                        <input type="hidden" class="money" name="total-deferred-501c18D" maxlength="15" />
+                        <input type="hidden" name="blank" value=" " maxlength="15" />
+                        <input type="hidden" class="money" name="total-nonqualified-457" maxlength="15" />
+                        <input type="hidden" class="money" name="total-hsa-contributions" maxlength="15" />
+                        <input type="hidden" class="money" name="total-nonqualified-not-457" maxlength="15" />
+                        <input type="hidden" class="money" name="total-nontaxable-combat-pay" maxlength="15" />
+                        <input type="hidden" name="blank" maxlength="15" />
+                        <input type="hidden" class="money" name="total-group-term-life-insurance" maxlength="15" />
+                        <input type="hidden" class="money" name="total-income-from-nonstatutory-stock-options" maxlength="15" />
+                        <input type="hidden" class="money" name="total-deferrals-nonqualified-409a" maxlength="15" />
+                        <input type="hidden" class="money" name="total-roth-contributions-401k" maxlength="15" />
+                        <input type="hidden" class="money" name="total-roth-contributions-403b" maxlength="15" />
+                        <input type="hidden" class="money" name="total-employer-sponsored-health-coverage" maxlength="15" />
+                        <input type="hidden" class="money" name="total-small-employer-health-reimbursement" maxlength="15" />
+                        <input type="hidden" name="blank" maxlength="98" />
+                    </form>
+                    <form class="state-total form-horizontal">
+                        <h3>State of Iowa Total Record</h3>
+                        <input type="hidden" name="record-id" value="RV" maxlength="2" />
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Number of Employees:</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="right" name="number-of-rs-records" value="1" maxlength="7" disabled />
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Total State Taxable Wages:</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="money" name="total-state-taxable-wages" maxlength="15" disabled/>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-xs-4 control-label">Total State Income Tax Withheld:</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="money" name="total-state-income-tax-withheld" maxlength="15" disabled/>
+                            </div>
+                        </div>
+                        
+                        <input type="hidden" name="state-ben" maxlength="8" />
+                        <input type="hidden" class="right" name="iowa-confirmation-number" value="0" maxlength="10" />
+                        <input type="hidden" name="blank" value=" " maxlength="455" />
+                    </form>
+                    <form class="final">
+                        <input type="hidden" name="record-id" value="RF" maxlength="2" />
+                        <input type="hidden" name="blank" value=" " maxlength="5" />
+                        <input type="hidden" class="right" name="number-of-rs-records" value="1" maxlength="9" />
+                        <input type="hidden" name="blank" value=" " maxlength="496" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+    
+</html>
